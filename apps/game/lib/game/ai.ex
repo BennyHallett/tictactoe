@@ -30,7 +30,7 @@ defmodule Game.Ai do
   defp make_move(sender, board, token), do: 0..8 |> Enum.shuffle |> hd |> _make_move(sender, board, token)
   defp _make_move(pos, sender, board, token), do: confirm_move(sender, board, Enum.at(board, pos), pos, token)
   
-  defp confirm_move(sender, _board, nil, pos, token), do: send(sender, { :ok, { :my_move, pos, token } })
+  defp confirm_move(sender, _board, nil, pos, token), do: send(sender, { :my_move, pos, token })
   defp confirm_move(sender, board, _, _, token), do: make_move(sender, board, token)
 
 end
