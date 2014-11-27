@@ -1,6 +1,6 @@
 defmodule Game.Player do
 
-  def start(name, token), do: spawn_link(_start(name, token))
+  def start(name, token), do: spawn(fn -> _start(name, token) end)
 
   def _start(name, token) do
     receive do
@@ -22,6 +22,7 @@ defmodule Game.Player do
 
   defp make_move(sender, board, token) do
     Game.Board.draw(board) |> IO.puts
+
     { pos, _ } = "Which position would you like to play?: "
     |> IO.gets
     |> String.strip
