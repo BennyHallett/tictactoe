@@ -7,6 +7,7 @@ defmodule Game.Factory do
 
   def handle_cast({ :start_game, { p1, p2 } }, sup) do
     Game.InstanceSupervisor.start_game(sup, p1, p2)
+    { :noreply, sup }
   end
 
 end

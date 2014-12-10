@@ -16,8 +16,9 @@ defmodule Game.Process do
       { :my_move, pos, token } ->
         board = List.update_at(board, pos, fn _ -> token end)
     end
+    IO.puts "Got p2, finishing"
 
-    IO.puts "The game is now: #{board}"
+    IO.puts "The game is now: #{Enum.join(board, " ")}"
   end
 
 end
