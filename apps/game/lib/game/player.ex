@@ -32,7 +32,7 @@ defmodule Game.Player do
   end
 
   defp play_pos(pos, board, token, sender), do: _play_pos(board, token, pos, sender, Enum.at(board, pos) == nil)
-  defp _play_pos(_board, token, pos, sender, true), do: send(sender, { :ok, { :my_move, pos, token } })
+  defp _play_pos(_board, token, pos, sender, true), do: send(sender, { :my_move, pos, token })
   defp _play_pos(board, token, _, sender, false) do
     { pos, _ } = "That position was taken. Please choose again: "
     |> IO.gets
