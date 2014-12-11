@@ -1,18 +1,18 @@
-defmodule Game.Mixfile do
+defmodule Network.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :game,
+    [app: :network,
      version: "0.0.1",
      deps_path: "../../deps",
      lockfile: "../../mix.lock",
-     elixir: "~> 1.0.0",
+     elixir: "~> 1.0",
      deps: deps]
   end
 
   def application do
     [applications: [:logger],
-     mod: {Game, []}]
+     mod: {Network, []}]
   end
 
   defp deps do
